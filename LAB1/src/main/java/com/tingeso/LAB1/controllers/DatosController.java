@@ -1,6 +1,6 @@
 package com.tingeso.LAB1.controllers;
 
-import com.tingeso.LAB1.services.DataService;
+import com.tingeso.LAB1.services.DatosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,14 +11,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping
-public class DataController {
+public class DatosController {
 
     @Autowired
-    DataService dataService;
+    DatosService datosService;
 
     @PostMapping("/cargar")
     public String subir(@RequestParam("archivos") MultipartFile file){
-        dataService.guardar(file);
+        datosService.guardar(file);
         return "redirect:/";
     }
 
