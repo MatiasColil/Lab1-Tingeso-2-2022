@@ -15,7 +15,7 @@ import java.sql.Time;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class DatosEntity {
+public class DatosEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)

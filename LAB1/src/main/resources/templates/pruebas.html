@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagina principal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container-sm">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Rut</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Categoria</th>
+            <th>Fecha de nacimiento</th>
+            <th>Ingreso a la empresa</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="jg:${jg}">
+            <td th:text="${jg.rut}"></td>
+            <td th:text="${jg.dia}"></td>
+            <td th:text="${jg.mes}"></td>
+            <td th:text="${jg.anio}"></td>
+            <td th:text="${jg.hora_ingreso}"></td>
+            <td th:text="${jg.hora_salida}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>
