@@ -7,15 +7,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.thymeleaf.expression.Lists;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class DatosService {
@@ -40,7 +38,7 @@ public class DatosService {
 
     }
 
-    public List<Map<String,Object>> resultadoConsulta(){
+    public List<Map<String, String>> resultadoConsulta(){
         return datosRepository.reordenarDatos();
     }
 

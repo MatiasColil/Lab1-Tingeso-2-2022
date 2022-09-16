@@ -23,6 +23,15 @@ public class EntradasEntity {
     private int anioTrabajo;
     private int horaIngreso;
     private int horaSalida;
-
     private String rut;
+
+
+    public EntradasEntity(int diaTrabajo, int horaIngreso, int horaSalida, String rut, int anioTrabajo, int mesTrabajo) {
+        this.diaTrabajo = diaTrabajo;
+        this.mesTrabajo = mesTrabajo;
+        this.anioTrabajo = anioTrabajo;
+        this.horaIngreso = horaIngreso;
+        this.horaSalida = horaSalida;
+        this.rut = rut;
+    }
 }

@@ -21,14 +21,4 @@ public class EntradasController {
     @Autowired
     EntradasService entradasService;
 
-    /*
-    @GetMapping("/test")
-    public String abcde(Model model){
-        List<EntradasEntity> jg = entradasService.resultadoConsulta();
-        model.addAttribute("jg",jg);
-        //entradasService.guardarDatos((EntradasEntity) jg);
-        return "pruebas";
-    }
-
-     */
 }
