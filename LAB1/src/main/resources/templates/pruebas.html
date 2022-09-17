@@ -16,7 +16,7 @@
             <th>Categoria</th>
             <th>Años de servicio</th>
             <th>Sueldo fijo mensual</th>
-            <th>Monto bonificacion</th>
+            <th>Monto bonificacion años de servicio</th>
             <th>Monto pago horas extras</th>
             <th>Monto descuentos</th>
             <th>Sueldo bruto</th>
@@ -27,13 +27,19 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="jg:${jg}">
-            <td th:text="${jg.rut}"></td>
-            <td th:text="${jg.dia}"></td>
-            <td th:text="${jg.mes}"></td>
-            <td th:text="${jg.anio}"></td>
-            <td th:text="${jg.hora_ingreso}"></td>
-            <td th:text="${jg.hora_salida}"></td>
+        <tr th:each="reportes:${reportes}">
+            <td th:text="${reportes.rut}"></td>
+            <td th:text="${reportes.nombreApellido}"></td>
+            <td th:text="${reportes.categoria}"></td>
+            <td th:text="${reportes.aniosServicio}"></td>
+            <td th:text="${reportes.sueldoFijo}"></td>
+            <td th:text="${reportes.bonificacionAnios}"></td>
+            <td th:text="${reportes.bonificacionHrsExtras}"></td>
+            <td th:text="${reportes.descuentos}"></td>
+            <td th:text="${reportes.sueldoBruto}"></td>
+            <td th:text="${reportes.CotizacionPrevisional}"></td>
+            <td th:text="${reportes.CotizacionSalud}"></td>
+            <td th:text="${reportes.montoFinal}"></td>
         </tr>
         </tbody>
     </table>

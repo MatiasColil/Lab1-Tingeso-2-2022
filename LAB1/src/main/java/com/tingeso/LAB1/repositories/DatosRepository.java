@@ -24,7 +24,7 @@ public interface DatosRepository extends JpaRepository<DatosEntity, Long> {
 
     @Transactional
     @Modifying
-    @Query(value = "LOAD DATA LOCAL INFILE :directorio INTO TABLE datos FIELDS TERMINATED BY ';' LINES TERMINATED BY '\n' (fecha, hora, rut)", nativeQuery = true)
+    @Query(value = "LOAD DATA LOCAL INFILE :directorio INTO TABLE datos FIELDS TERMINATED BY ';' LINES TERMINATED BY '\r\n' STARTING BY '' (fecha, hora, rut)", nativeQuery = true)
     public void importarDatos(@Param("directorio") String directorio);
 
     @Query (value = "SELECT test.dia as dia, ROUND(test.minutos) as hora_ingreso, ROUND(test2.minutos) as hora_salida, test.rut as rut, test.año as anio, test.mes as mes FROM " +
@@ -32,9 +32,5 @@ public interface DatosRepository extends JpaRepository<DatosEntity, Long> {
             "INNER JOIN (SELECT id, rut, TIME_TO_SEC(hora)/60  as minutos, DAY(fecha) as dia  from datos WHERE TIME_TO_SEC(hora)/60 < 700) as test2 " +
             "ON test.rut=test2.rut AND test.dia=test2.dia",nativeQuery = true)
     List<Map<String, String>> reordenarDatos();
-
-    @Query(value = "SELECT MONTH(fecha),rut, hora from datos where TIME_TO_SEC(hora)/60 >550",nativeQuery = true)
-    List<Object> probandoQuery();
-
 
 }

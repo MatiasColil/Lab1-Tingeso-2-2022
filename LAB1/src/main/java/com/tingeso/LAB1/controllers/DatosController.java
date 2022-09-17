@@ -29,6 +29,8 @@ public class DatosController {
     @PostMapping("/cargar")
     public String subir(@RequestParam("archivos") MultipartFile file){
         datosService.guardar(file);
+        List<Map<String,String>> jg = datosService.resultadoConsulta();
+        entradasService.guardarTest(jg);
         return "redirect:/";
     }
 
@@ -37,11 +39,4 @@ public class DatosController {
         return "upload";
     }
 
-    @GetMapping("/test")
-    public String abcde(Model model){
-        List<Map<String,String>> jg = datosService.resultadoConsulta();
-        entradasService.guardarTest(jg);
-        model.addAttribute("jg",jg);
-        return "pruebas";
-    }
 }

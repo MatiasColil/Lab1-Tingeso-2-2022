@@ -16,13 +16,6 @@ public class EmpleadoController {
     @Autowired
     EmpleadoService empleadoService;
 
-    @GetMapping("/plantilla")
-    public String empleados(Model model){
-        ArrayList <EmpleadoEntity> empleados=empleadoService.obtenerEmpleados();
-        model.addAttribute("empleados", empleados);
-        return "plantilla";
-    }
-
     @GetMapping("/")
     public String home(){
         return "home";
