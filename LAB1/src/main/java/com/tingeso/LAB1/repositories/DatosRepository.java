@@ -28,9 +28,9 @@ public interface DatosRepository extends JpaRepository<DatosEntity, Long> {
     public void importarDatos(@Param("directorio") String directorio);
 
     @Query (value = "SELECT test.dia as dia, ROUND(test.minutos) as hora_ingreso, ROUND(test2.minutos) as hora_salida, test.rut as rut, test.año as anio, test.mes as mes FROM " +
-            "(SELECT id, rut, TIME_TO_SEC(hora)/60  as minutos, DAY (fecha) as dia, MONTH (fecha) as mes, YEAR (fecha) as año from datos WHERE TIME_TO_SEC(hora)/60 > 550) as test " +
-            "INNER JOIN (SELECT id, rut, TIME_TO_SEC(hora)/60  as minutos  from datos WHERE TIME_TO_SEC(hora)/60 < 550) as test2 " +
-            "ON test.rut=test2.rut",nativeQuery = true)
+            "(SELECT id, rut, TIME_TO_SEC(hora)/60  as minutos, DAY (fecha) as dia, MONTH (fecha) as mes, YEAR (fecha) as año from datos WHERE TIME_TO_SEC(hora)/60 > 700) as test " +
+            "INNER JOIN (SELECT id, rut, TIME_TO_SEC(hora)/60  as minutos, DAY(fecha) as dia  from datos WHERE TIME_TO_SEC(hora)/60 < 700) as test2 " +
+            "ON test.rut=test2.rut AND test.dia=test2.dia",nativeQuery = true)
     List<Map<String, String>> reordenarDatos();
 
     @Query(value = "SELECT MONTH(fecha),rut, hora from datos where TIME_TO_SEC(hora)/60 >550",nativeQuery = true)

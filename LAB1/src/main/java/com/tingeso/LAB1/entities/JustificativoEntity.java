@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Justificativo")
@@ -19,6 +19,6 @@ public class JustificativoEntity {
     private Long id;
 
     private String rut;
-    private Date fecha;
+    private LocalDate fecha;
 
 }

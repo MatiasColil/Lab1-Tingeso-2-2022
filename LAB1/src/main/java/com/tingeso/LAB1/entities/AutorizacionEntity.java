@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Autorizacion")
@@ -19,5 +20,5 @@ public class AutorizacionEntity {
     private Long id;
 
     private String rut;
-    private Date fecha;
+    private LocalDate fecha;
 }

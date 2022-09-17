@@ -2,10 +2,10 @@ package com.tingeso.LAB1.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -24,6 +24,6 @@ public class EmpleadoEntity {
     private String apellidos;
     private String rut;
     private String categoria;
-    private Date fechaNacimiento;
-    private Date ingresoEmpresa;
+    private LocalDate fechaNacimiento;
+    private LocalDate ingresoEmpresa;
 }

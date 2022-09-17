@@ -42,8 +42,6 @@ public class DatosController {
         List<Map<String,String>> jg = datosService.resultadoConsulta();
         entradasService.guardarTest(jg);
         model.addAttribute("jg",jg);
-        //entradasService.guardarTest(jg);
-        //entradasService.guardarDatos((EntradasEntity) jg);
         return "pruebas";
     }
 }
