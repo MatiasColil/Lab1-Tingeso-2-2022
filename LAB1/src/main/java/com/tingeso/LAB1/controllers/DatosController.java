@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.thymeleaf.expression.Lists;
 
+import java.io.IOException;
 import java.util.*;
 
 @Controller
@@ -27,7 +28,7 @@ public class DatosController {
     EntradasService entradasService;
 
     @PostMapping("/cargar")
-    public String subir(@RequestParam("archivos") MultipartFile file){
+    public String subir(@RequestParam("archivos") MultipartFile file) throws IOException {
         datosService.guardar(file);
         List<Map<String,String>> jg = datosService.resultadoConsulta();
         entradasService.guardarTest(jg);

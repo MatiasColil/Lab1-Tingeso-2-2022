@@ -5,8 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Date;
-import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 
 @Entity
@@ -21,7 +21,13 @@ public class DatosEntity{
     @Column(unique = true, nullable = false)
     private Long id;
 
-    private Date fecha;
-    private Time hora;
+    private LocalDate fecha;
+    private LocalTime hora;
     private String rut;
+
+    public DatosEntity(LocalDate fecha, LocalTime hora, String rut) {
+        this.fecha = fecha;
+        this.hora = hora;
+        this.rut = rut;
+    }
 }

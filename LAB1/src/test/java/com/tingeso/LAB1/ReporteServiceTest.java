@@ -29,7 +29,7 @@ public class ReporteServiceTest {
 
     @Test
     void test2(){
-        Double test = reporte.descuentoDiasNoTrabajados(6,1700000);
+        Double test = reporte.descuentoDiasNoTrabajados(2,1700000);
         assertEquals(510000,test);
     }
 

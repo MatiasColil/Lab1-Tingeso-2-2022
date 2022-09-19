@@ -11,7 +11,7 @@
 <body>
   <div class="mb-3">
     <form action="#" th:action="@{/guardarautorizacion}" method="post" th:object="${autorizacionObject}">
-      <label for="exampleFormControlInput1" class="form-label">Ingrese autorizacion</label>
+      <label class="form-label">Ingrese autorizacion</label>
       <input type="text" class="form-control" id="rut" name="rut" placeholder="Ingrese el rut del empleado">
       <input type="date" class="form-control" id="fecha" name="fecha" placeholder="Ingrese fecha de la autorizacion">
       <input type="submit" class="btn btn-primary" value="Ingresar">
