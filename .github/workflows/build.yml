@@ -9,9 +9,6 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: /Lab1-Tingeso-2-2022/LAB1
     steps:
       - uses: actions/checkout@v2
         with:
