@@ -27,7 +27,6 @@ public class AutorizacionService {
         LocalDate fecha = LocalDate.parse(fechatmp, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
         return autorizacionRepository.save(new AutorizacionEntity(rut,fecha));
-
     }
 
     public ArrayList<AutorizacionEntity> obtenerAutorizaciones (){
