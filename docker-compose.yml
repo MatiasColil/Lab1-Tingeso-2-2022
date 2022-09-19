@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  tingeso:
+    image: mysql
+    restart: always
+    volumes:
+      - ./data/db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql80
+      MYSQL_DATABASE: tingesolab
+    ports:
+      - 3306:3306
+  lab1:
+    container_name: appcompose
+    image: matiadres/applab
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:mysql://tingeso:3306/tingesolab?allowLoadLocalInfile=true
+      DB_USERNAME: root
+      DB_PASSWORD: mysql80
+    deploy:
+      restart_policy:
+        condition: on-failure
+    depends_on:
+      - tingeso

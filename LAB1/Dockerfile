@@ -1,0 +1,5 @@
+FROM openjdk:17
+ARG JAR_FILE=build/libs/LAB1-0.0.1-SNAPSHOT.jar
+COPY ${JAR_FILE} LAB1-0.0.1-SNAPSHOT.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","/LAB1-0.0.1-SNAPSHOT.jar"]
