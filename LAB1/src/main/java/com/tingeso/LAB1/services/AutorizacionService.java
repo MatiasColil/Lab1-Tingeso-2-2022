@@ -5,14 +5,9 @@ import com.tingeso.LAB1.repositories.AutorizacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.util.HtmlUtils;
-import org.w3c.dom.Element;
-import org.w3c.dom.html.HTMLElement;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @Service

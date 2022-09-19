@@ -5,6 +5,7 @@ plugins {
 	id 'com.palantir.docker' version '0.34.0'
 	id 'com.palantir.docker-compose' version '0.34.0'
 	id "org.sonarqube" version "3.4.0.2513"
+	id "jacoco"
 }
 
 group = 'com.tingeso'
@@ -16,6 +17,12 @@ sonarqube {
 		property "sonar.projectKey", "MatiasColil_Lab1-Tingeso-2-2022"
 		property "sonar.organization", "matiascolil"
 		property "sonar.host.url", "https://sonarcloud.io"
+	}
+}
+
+jacocoTestReport {
+	reports {
+		xml.enabled true
 	}
 }
 
