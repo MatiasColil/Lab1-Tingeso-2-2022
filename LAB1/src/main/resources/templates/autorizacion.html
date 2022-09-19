@@ -10,9 +10,11 @@
 
 <body>
   <div class="mb-3">
-    <form action="#" th:action="@{/guardarautorizacion}" method="post" th:object="${autorizacionObject}">
+    <form action="#" th:action="@{/guardarautorizacion}" method="post" th:object="${autorizacion}">
       <label class="form-label">Ingrese autorizacion</label>
+      <label for="rut">Ingrese el rut:</label>
       <input type="text" class="form-control" id="rut" name="rut" placeholder="Ingrese el rut del empleado">
+      <label for="fecha">Ingrese la fecha: </label>
       <input type="date" class="form-control" id="fecha" name="fecha" placeholder="Ingrese fecha de la autorizacion">
       <input type="submit" class="btn btn-primary" value="Ingresar">
       <a class="btn btn-primary " href="/home" role="button">Volver al inicio</a>

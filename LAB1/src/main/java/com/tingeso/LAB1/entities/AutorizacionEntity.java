@@ -21,4 +21,9 @@ public class AutorizacionEntity {
 
     private String rut;
     private LocalDate fecha;
+
+    public AutorizacionEntity(String rut, LocalDate fecha) {
+        this.rut = rut;
+        this.fecha = fecha;
+    }
 }
