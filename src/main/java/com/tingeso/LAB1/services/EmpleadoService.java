@@ -21,7 +21,4 @@ public class EmpleadoService {
         return (ArrayList<EmpleadoEntity>) empleadoRepository.findAll();
     }
 
-    public EmpleadoEntity guardarEmpleado (EmpleadoEntity empleado){
-        return empleadoRepository.save(empleado);
-    }
 }

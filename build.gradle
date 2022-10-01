@@ -51,5 +51,8 @@ dependencies {
 }
 
 tasks.named('test') {
+	environment "DB_URL", "jdbc:mysql://localhost:3306/tingesolab?allowLoadLocalInfile=true"
+	environment "DB_USERNAME", "root"
+	environment "DB_PASSWORD", "Mysql80_"
 	useJUnitPlatform()
 }

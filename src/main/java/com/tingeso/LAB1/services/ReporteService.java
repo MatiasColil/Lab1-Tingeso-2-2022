@@ -35,23 +35,23 @@ public class ReporteService {
             cotizacionPrev = cotizacionPrev + sueldoFijo*0.1;
             cotizacionSalud=cotizacionSalud+sueldoFijo*0.08;
             bonificacionAnios=calculoAniosServicio(aniosServicio(empleado),sueldoFijo);
-            descuentosIngreso = descuentosIngreso - sueldoFijo*0.1 - sueldoFijo*0.08;
+            descuentosIngreso = descuentosIngreso + sueldoFijo*0.1 + sueldoFijo*0.08 + descuentoDiasNoTrabajados(diasNoTrabajados(empleado,entradas),sueldoFijo);
 
             for (int j=0;j<entradas.size();j++){
                 if (Objects.equals(empleado.getRut(), entradas.get(j).getRut())){
                     //calculo de descuentos
                     if (entradas.get(j).getHoraIngreso()>=491 && entradas.get(j).getHoraIngreso()<505){
-                        descuentosIngreso=descuentosIngreso-sueldoFijo*0.01;
+                        descuentosIngreso=descuentosIngreso+sueldoFijo*0.01;
                         sueldo = sueldo - sueldoFijo*0.01;
                     } else if (entradas.get(j).getHoraIngreso()>=506 && entradas.get(j).getHoraIngreso()<525) {
-                        descuentosIngreso=descuentosIngreso-sueldoFijo*0.03;
+                        descuentosIngreso=descuentosIngreso+sueldoFijo*0.03;
                         sueldo = sueldo - sueldoFijo*0.03;
                     } else if (entradas.get(j).getHoraIngreso()>=526 && entradas.get(j).getHoraIngreso()<550) {
-                        descuentosIngreso=descuentosIngreso-sueldoFijo*0.06;
+                        descuentosIngreso=descuentosIngreso+sueldoFijo*0.06;
                         sueldo = sueldo - sueldoFijo*0.06;
                     } else if (entradas.get(j).getHoraIngreso()>=551 && entradas.get(j).getHoraIngreso()<700) {
                         if (verificacionJustificativo(empleado, justificativos, entradas.get(j).getDiaTrabajo())){
-                            descuentosIngreso=descuentosIngreso-sueldoFijo*0.15;
+                            descuentosIngreso=descuentosIngreso+sueldoFijo*0.15;
                             sueldo = sueldo - sueldoFijo*0.15;
                         }
                     }
@@ -79,23 +79,23 @@ public class ReporteService {
             cotizacionPrev = cotizacionPrev + sueldoFijo*0.1;
             cotizacionSalud=cotizacionSalud+sueldoFijo*0.08;
             bonificacionAnios=calculoAniosServicio(aniosServicio(empleado),sueldoFijo);
-            descuentosIngreso = descuentosIngreso - sueldoFijo*0.1 - sueldoFijo*0.08;
+            descuentosIngreso = descuentosIngreso + sueldoFijo*0.1 + sueldoFijo*0.08 + descuentoDiasNoTrabajados(diasNoTrabajados(empleado,entradas),sueldoFijo);
 
             for (int j=0;j<entradas.size();j++){
                 if (Objects.equals(empleado.getRut(), entradas.get(j).getRut())){
                     //calculo de descuentos
                     if (entradas.get(j).getHoraIngreso()>=491 && entradas.get(j).getHoraIngreso()<505){
-                        descuentosIngreso=descuentosIngreso-sueldoFijo*0.01;
+                        descuentosIngreso=descuentosIngreso+sueldoFijo*0.01;
                         sueldo = sueldo - sueldoFijo*0.01;
                     } else if (entradas.get(j).getHoraIngreso()>=506 && entradas.get(j).getHoraIngreso()<525) {
-                        descuentosIngreso=descuentosIngreso-sueldoFijo*0.03;
+                        descuentosIngreso=descuentosIngreso+sueldoFijo*0.03;
                         sueldo = sueldo - sueldoFijo*0.03;
                     } else if (entradas.get(j).getHoraIngreso()>=526 && entradas.get(j).getHoraIngreso()<550) {
-                        descuentosIngreso=descuentosIngreso-sueldoFijo*0.06;
+                        descuentosIngreso=descuentosIngreso+sueldoFijo*0.06;
                         sueldo = sueldo - sueldoFijo*0.06;
                     } else if (entradas.get(j).getHoraIngreso()>=551 && entradas.get(j).getHoraIngreso()<700) {
                         if (verificacionJustificativo(empleado, justificativos, entradas.get(j).getDiaTrabajo())){
-                            descuentosIngreso=descuentosIngreso-sueldoFijo*0.15;
+                            descuentosIngreso=descuentosIngreso+sueldoFijo*0.15;
                             sueldo = sueldo - sueldoFijo*0.15;
                         }
                     }
@@ -121,23 +121,23 @@ public class ReporteService {
             cotizacionPrev = cotizacionPrev + sueldoFijo*0.1;
             cotizacionSalud=cotizacionSalud+sueldoFijo*0.08;
             bonificacionAnios=calculoAniosServicio(aniosServicio(empleado),sueldoFijo);
-            descuentosIngreso = descuentosIngreso - sueldoFijo*0.1 - sueldoFijo*0.08;
+            descuentosIngreso = descuentosIngreso + sueldoFijo*0.1 + sueldoFijo*0.08 + descuentoDiasNoTrabajados(diasNoTrabajados(empleado,entradas),sueldoFijo);
 
             for (int j=0;j<entradas.size();j++){
                 if (Objects.equals(empleado.getRut(), entradas.get(j).getRut())){
                     //calculo de descuentos
                     if (entradas.get(j).getHoraIngreso()>=491 && entradas.get(j).getHoraIngreso()<505){
-                        descuentosIngreso=descuentosIngreso-sueldoFijo*0.01;
+                        descuentosIngreso=descuentosIngreso+sueldoFijo*0.01;
                         sueldo = sueldo - sueldoFijo*0.01;
                     } else if (entradas.get(j).getHoraIngreso()>=506 && entradas.get(j).getHoraIngreso()<525) {
-                        descuentosIngreso=descuentosIngreso-sueldoFijo*0.03;
+                        descuentosIngreso=descuentosIngreso+sueldoFijo*0.03;
                         sueldo = sueldo - sueldoFijo*0.03;
                     } else if (entradas.get(j).getHoraIngreso()>=526 && entradas.get(j).getHoraIngreso()<550) {
-                        descuentosIngreso=descuentosIngreso-sueldoFijo*0.06;
+                        descuentosIngreso=descuentosIngreso+sueldoFijo*0.06;
                         sueldo = sueldo - sueldoFijo*0.06;
                     } else if (entradas.get(j).getHoraIngreso()>=551 && entradas.get(j).getHoraIngreso()<700) {
                         if (verificacionJustificativo(empleado, justificativos, entradas.get(j).getDiaTrabajo())){
-                            descuentosIngreso=descuentosIngreso-sueldoFijo*0.15;
+                            descuentosIngreso=descuentosIngreso+sueldoFijo*0.15;
                             sueldo = sueldo - sueldoFijo*0.15;
                         }
                     }
