@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Build Docker Image'){
             steps{
-                sh 'docker build -t matiadres/applab:latest .'
+                sh 'docker build -t matiadres/applab .'
             }
         }
 
