@@ -1,5 +1,5 @@
 FROM openjdk:17
-ARG JAR_FILE=build/libs/LAB1-0.0.1-SNAPSHOT.jar
-COPY ${JAR_FILE} LAB1-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=build/libs/Lab1_Tingeso-2-2022-0.0.1-SNAPSHOT.jar
+COPY ${JAR_FILE} Lab1_Tingeso-2-2022-0.0.1-SNAPSHOT.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/LAB1-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","/Lab1_Tingeso-2-2022-0.0.1-SNAPSHOT.jar"]
