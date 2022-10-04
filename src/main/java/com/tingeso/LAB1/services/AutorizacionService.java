@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.MultiValueMap;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -16,15 +16,15 @@ public class AutorizacionService {
     @Autowired
     AutorizacionRepository autorizacionRepository;
 
-    public AutorizacionEntity guardarAutorizacion(MultiValueMap autorizacion){
-        String rut = Objects.requireNonNull(autorizacion.getFirst("rut")).toString();
-        String fechatmp = Objects.requireNonNull(autorizacion.getFirst("fecha")).toString();
+    public AutorizacionEntity guardarAutorizacion(MultiValueMap<String,String> autorizacion){
+        String rut = Objects.requireNonNull(autorizacion.getFirst("rut"));
+        String fechatmp = Objects.requireNonNull(autorizacion.getFirst("fecha"));
         LocalDate fecha = LocalDate.parse(fechatmp, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
         return autorizacionRepository.save(new AutorizacionEntity(rut,fecha));
     }
 
-    public ArrayList<AutorizacionEntity> obtenerAutorizaciones (){
-        return (ArrayList<AutorizacionEntity>) autorizacionRepository.findAll();
+    public List<AutorizacionEntity> obtenerAutorizaciones (){
+        return autorizacionRepository.findAll();
     }
 }

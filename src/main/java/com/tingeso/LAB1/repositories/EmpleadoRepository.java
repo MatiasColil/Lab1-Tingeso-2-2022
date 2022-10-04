@@ -1,7 +1,7 @@
 package com.tingeso.LAB1.repositories;
 
 import com.tingeso.LAB1.entities.EmpleadoEntity;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /*
@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 *
 * */
 @Repository
-public interface EmpleadoRepository extends CrudRepository<EmpleadoEntity, Long> {
+public interface EmpleadoRepository extends JpaRepository<EmpleadoEntity, Long> {
 }

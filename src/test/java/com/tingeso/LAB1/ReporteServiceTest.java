@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -128,9 +129,9 @@ class ReporteServiceTest {
         autorizacion.setFecha(LocalDate.parse("2022-05-30", DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         autorizaciones.add(autorizacion);
 
-        ArrayList<Double> sueldos = reporte.calcularSueldo(empleado, arreglo, justicativos, autorizaciones);
+        List<Double> sueldos = reporte.calcularSueldo(empleado, arreglo, justicativos, autorizaciones);
 
-        ArrayList<Double> sueldosCorrectos = new ArrayList<>();
+        List<Double> sueldosCorrectos = new ArrayList<>();
         sueldosCorrectos.add((double)1700000);
         sueldosCorrectos.add((double)289000);
         sueldosCorrectos.add((double)0);

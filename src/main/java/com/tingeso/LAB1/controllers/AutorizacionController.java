@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
+
+
 @Controller
 @RequestMapping
 public class AutorizacionController {
@@ -13,7 +15,7 @@ public class AutorizacionController {
     AutorizacionService autorizacionService;
 
     @PostMapping(value = "/guardarautorizacion")
-    public String guardarJUstificativo( @RequestBody MultiValueMap autorizacion){
+    public String guardarJUstificativo( @RequestBody MultiValueMap<String,String> autorizacion){
         autorizacionService.guardarAutorizacion(autorizacion);
         return "redirect:/";
     }

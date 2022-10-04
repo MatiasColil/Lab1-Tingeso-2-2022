@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -15,9 +16,9 @@ public class ReporteService {
     @Autowired
     ReporteRepository reporteRepository;
 
-    public ArrayList<Double> calcularSueldo(EmpleadoEntity empleado, ArrayList<EntradasEntity> entradas, ArrayList<JustificativoEntity> justificativos, ArrayList<AutorizacionEntity> autorizaciones){
+    public List<Double> calcularSueldo(EmpleadoEntity empleado, List<EntradasEntity> entradas, List<JustificativoEntity> justificativos, List<AutorizacionEntity> autorizaciones){
 
-        ArrayList<Double> dineros = new ArrayList<>();
+        List<Double> dineros = new ArrayList<>();
         double sueldo=0;
         double sueldoBruto=0;
         double descuentosIngreso=0;
@@ -65,11 +66,7 @@ public class ReporteService {
                         }
                     }
                 }
-
             }
-
-
-
         }
         else if (empleado.getCategoria().equals("B")) {
             double sueldoFijo = 1200000;
@@ -109,9 +106,7 @@ public class ReporteService {
                         }
                     }
                 }
-
             }
-            
         }
         else if (empleado.getCategoria().equals("C")) {
             double sueldoFijo = 800000;
@@ -188,7 +183,7 @@ public class ReporteService {
         return dinero;
     }
 
-    public int diasNoTrabajados(EmpleadoEntity empleado, ArrayList<EntradasEntity> entradas){
+    public int diasNoTrabajados(EmpleadoEntity empleado, List<EntradasEntity> entradas){
         int dias=0;
         int diferencia=30;
         for (int i=0;i<entradas.size();i++) {
@@ -207,7 +202,7 @@ public class ReporteService {
         return descuento;
     }
 
-    public boolean verificacionJustificativo(EmpleadoEntity empleado, ArrayList<JustificativoEntity> justificativo, int dia){
+    public boolean verificacionJustificativo(EmpleadoEntity empleado, List<JustificativoEntity> justificativo, int dia){
         for (int i=0;i<justificativo.size();i++){
             if (justificativo.get(i).getRut().equals(empleado.getRut()) && dia==justificativo.get(i).getFecha().getDayOfMonth()){
                 return false;
@@ -216,7 +211,7 @@ public class ReporteService {
         return true;
     }
 
-    public boolean verificacionHorasExtras(EmpleadoEntity empleado, ArrayList<AutorizacionEntity> autorizacion, int dia){
+    public boolean verificacionHorasExtras(EmpleadoEntity empleado, List<AutorizacionEntity> autorizacion, int dia){
         for (int i=0;i<autorizacion.size();i++){
             if (autorizacion.get(i).getRut().equals(empleado.getRut()) && dia==autorizacion.get(i).getFecha().getDayOfMonth()){
                 return true;
@@ -225,21 +220,21 @@ public class ReporteService {
         return false;
     }
 
-    public void guardarReporteEmpleado(ArrayList<Double> dineros, EmpleadoEntity empleado){
+    public void guardarReporteEmpleado(List<Double> dineros, EmpleadoEntity empleado){
 
-        ReporteEntity reporte = new ReporteEntity(empleado.getRut(),empleado.getNombres() + empleado.getApellidos(), empleado.getCategoria(), aniosServicio(empleado),dineros.get(0),dineros.get(1),dineros.get(2),dineros.get(3),dineros.get(4),dineros.get(5),dineros.get(6),dineros.get(7));
+        ReporteEntity reporte = new ReporteEntity(empleado.getRut(),empleado.getNombres() +" " +empleado.getApellidos(), empleado.getCategoria(), aniosServicio(empleado),dineros.get(0),dineros.get(1),dineros.get(2),dineros.get(3),dineros.get(4),dineros.get(5),dineros.get(6),dineros.get(7));
         reporteRepository.save(reporte);
     }
 
-    public void iteracion(ArrayList<EmpleadoEntity> empleados, ArrayList<EntradasEntity> entradas, ArrayList<JustificativoEntity> justificativos, ArrayList<AutorizacionEntity> autorizaciones){
+    public void iteracion(List<EmpleadoEntity> empleados, List<EntradasEntity> entradas, List<JustificativoEntity> justificativos, List<AutorizacionEntity> autorizaciones){
         for (EmpleadoEntity empleado : empleados){
-            ArrayList<Double> dineros = calcularSueldo(empleado,entradas,justificativos,autorizaciones);
+            List<Double> dineros = calcularSueldo(empleado,entradas,justificativos,autorizaciones);
             guardarReporteEmpleado(dineros,empleado);
         }
     }
 
-    public ArrayList<ReporteEntity> obtenerReportes (){
-        return (ArrayList<ReporteEntity>) reporteRepository.findAll();
+    public List<ReporteEntity> obtenerReportes (){
+        return reporteRepository.findAll();
     }
 
 }

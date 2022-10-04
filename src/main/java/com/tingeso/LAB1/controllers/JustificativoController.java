@@ -17,7 +17,7 @@ public class JustificativoController {
     JustificativoService justificativoService;
 
     @PostMapping("/guardarjustificativo")
-    public String guardarJUstificativo(@RequestBody MultiValueMap justificativo){
+    public String guardarJUstificativo(@RequestBody MultiValueMap<String,String> justificativo){
         justificativoService.guardarJustificativo(justificativo);
         return "redirect:/";
     }

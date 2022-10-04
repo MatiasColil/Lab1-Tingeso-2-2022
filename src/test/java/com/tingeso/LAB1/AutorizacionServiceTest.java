@@ -16,7 +16,7 @@ import java.util.Collections;
 
 import static org.mockito.Mockito.when;
 
-public class AutorizacionServiceTest {
+class AutorizacionServiceTest {
 
 
     @Mock

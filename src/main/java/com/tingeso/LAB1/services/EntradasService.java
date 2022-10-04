@@ -15,7 +15,7 @@ public class EntradasService {
     public void guardarTest(List<Map<String, String>> test){
         for (Map<String, String> map:test) {
             Collection<String> probando = map.values();
-            List list = new ArrayList<>(probando);
+            List<Object> list = new ArrayList<>(probando);
 
 
             int diaTrabajo = Integer.parseInt(list.get(0).toString());
@@ -30,7 +30,7 @@ public class EntradasService {
         }
     }
 
-    public ArrayList<EntradasEntity> obtenerEntradas (){
-        return (ArrayList<EntradasEntity>) entradasRepository.findAll();
+    public List<EntradasEntity> obtenerEntradas (){
+        return  entradasRepository.findAll();
     }
 }
